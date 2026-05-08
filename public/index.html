@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj RAG Chat</title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <main class="app">
+        <section id="messages" class="messages">
+            <article class="message assistant">
+                <div class="avatar">
+                    <img src="https://api.dicebear.com/9.x/shapes/svg?seed=rag" alt="AI avatar">
+                </div>
+                <div class="bubble">
+                    Upload a PDF first, then ask me anything from that document.
+                </div>
+            </article>
+        </section>
+
+        <form id="chatForm" class="composer">
+            <div class="upload-row">
+                <label for="pdfInput" class="upload-button">Upload PDF</label>
+                <input id="pdfInput" type="file" accept="application/pdf" hidden>
+                <span id="uploadStatus" class="upload-status">No PDF uploaded</span>
+            </div>
+            <textarea id="messageInput" rows="1" placeholder="Message Suraj Chatbot"></textarea>
+            <div class="composer-actions">
+                <div class="composer-meta">Suraj RAG Chat</div>
+                <button id="sendButton" type="submit" aria-label="Send message">
+                    <span class="send-arrow">↑</span>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script type="module" src="/public/app.js"></script>
+</body>
+</html>
