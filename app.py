@@ -203,6 +203,16 @@ async def root() -> FileResponse:
     return FileResponse(PUBLIC_DIR / "index.html")
 
 
+@app.get("/styles.css")
+async def styles() -> FileResponse:
+    return FileResponse(PUBLIC_DIR / "styles.css", media_type="text/css")
+
+
+@app.get("/app.js")
+async def frontend_script() -> FileResponse:
+    return FileResponse(PUBLIC_DIR / "app.js", media_type="application/javascript")
+
+
 @app.post("/api/upload")
 async def upload_pdf(request: Request, file: UploadFile = File(...)) -> JSONResponse:
     session = get_session(request)

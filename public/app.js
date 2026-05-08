@@ -5,7 +5,10 @@ const sendButton = document.getElementById('sendButton');
 const pdfInput = document.getElementById('pdfInput');
 const uploadStatus = document.getElementById('uploadStatus');
 const storageKey = 'suraj-rag-chat-session';
-const apiBase = window.location.port === '8000' ? '' : 'http://127.0.0.1:8000';
+const isLocalStaticPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+    && window.location.port
+    && window.location.port !== '8000';
+const apiBase = isLocalStaticPreview ? 'http://127.0.0.1:8000' : '';
 
 function sanitizeResponseText(text) {
     return text
